@@ -1,65 +1,80 @@
 // ❤️ FECHA DE INICIO (CAMBIA ESTO)
-const fechaInicio = new Date("2024-06-24");
+const fechaInicio = new Date("2024-01-01");
 
-// 📅 CONTADOR DE DÍAS
+// 📅 CONTADOR EMOCIONAL
 function calcularDias() {
   const hoy = new Date();
-  const diferencia = hoy - fechaInicio;
-  const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+  const dias = Math.floor((hoy - fechaInicio) / (1000 * 60 * 60 * 24));
   document.getElementById("dias").innerText =
-    `Llevamos ${dias} días escribiendo nuestra historia 💕`;
+    `Llevamos ${dias} días eligiéndonos cada día 💕`;
 }
 calcularDias();
 
-// 💌 GENERADOR DE CUMPLIDOS
-const cumplidos = [
-  "Eres el lugar donde mi corazón descansa ❤️",
-  "Tu sonrisa es mi momento favorito del día",
-  "Amarte ha sido la mejor decisión de mi vida",
-  "Eres magia en forma de persona ✨",
-  "Gracias por hacerme sentir en casa"
-];
-
-function nuevoCumplido() {
-  const random = Math.floor(Math.random() * cumplidos.length);
-  document.getElementById("cumplido").innerText = cumplidos[random];
+// 💖 INICIAR EXPERIENCIA
+function iniciarAmor() {
+  document.getElementById("cumplidosCard").style.display = "block";
+  document.getElementById("familiaCard").style.display = "block";
+  document.getElementById("footer").style.display = "block";
+  document.getElementById("musica").play();
+  nuevoCumplido();
+  dibujarFamilia();
 }
 
-// 🎨 DIBUJO TIPO CRAYOLA (FAMILIA)
+// 💌 CUMPLIDOS (NO REPETITIVOS)
+const cumplidos = [
+  "Eres el mejor regalo que la vida me dio ❤️",
+  "Tu sonrisa hace que todo valga la pena",
+  "Gracias por ser amor, hogar y equipo",
+  "Nuestro amor es mi lugar seguro",
+  "Eres magia, paz y alegría al mismo tiempo ✨"
+];
+
+let ultimo = -1;
+
+function nuevoCumplido() {
+  let i;
+  do {
+    i = Math.floor(Math.random() * cumplidos.length);
+  } while (i === ultimo);
+  ultimo = i;
+  document.getElementById("cumplido").innerText = cumplidos[i];
+}
+
+// 🎨 DIBUJO ANIMADO TIPO CRAYOLA
 const canvas = document.getElementById("familia");
 const ctx = canvas.getContext("2d");
 
-function persona(x, y, color) {
-  ctx.strokeStyle = color;
-  ctx.lineWidth = 4;
+function personaAnimada(x, y, color, delay) {
+  setTimeout(() => {
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 4;
 
-  // cabeza
-  ctx.beginPath();
-  ctx.arc(x, y, 18, 0, Math.PI * 2);
-  ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(x, y, 18, 0, Math.PI * 2);
+    ctx.stroke();
 
-  // cuerpo
-  ctx.beginPath();
-  ctx.moveTo(x, y + 18);
-  ctx.lineTo(x, y + 60);
-  ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x, y + 18);
+    ctx.lineTo(x, y + 60);
+    ctx.stroke();
 
-  // brazos
-  ctx.beginPath();
-  ctx.moveTo(x - 20, y + 35);
-  ctx.lineTo(x + 20, y + 35);
-  ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x - 20, y + 35);
+    ctx.lineTo(x + 20, y + 35);
+    ctx.stroke();
 
-  // piernas
-  ctx.beginPath();
-  ctx.moveTo(x, y + 60);
-  ctx.lineTo(x - 15, y + 90);
-  ctx.moveTo(x, y + 60);
-  ctx.lineTo(x + 15, y + 90);
-  ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x, y + 60);
+    ctx.lineTo(x - 15, y + 90);
+    ctx.moveTo(x, y + 60);
+    ctx.lineTo(x + 15, y + 90);
+    ctx.stroke();
+  }, delay);
 }
 
-// DIBUJAR FAMILIA
-persona(80, 60, "#ec4899");   // Mamá
-persona(150, 70, "#22c55e"); // Hijo
-persona(220, 60, "#3b82f6"); // Papá
+function dibujarFamilia() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  personaAnimada(80, 60, "#ec4899", 200);   // Mamá
+  personaAnimada(150, 70, "#22c55e", 700); // Hijo
+  personaAnimada(220, 60, "#3b82f6", 1200); // Papá
+}
