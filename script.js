@@ -16,7 +16,7 @@ function iniciarAmor() {
   document.getElementById("familiaCard").style.display = "block";
   document.getElementById("footer").style.display = "block";
   document.getElementById("musica").play();
-  nuevoCumplido();
+  cumplidoDelDia();
   dibujarFamilia();
 }
 
@@ -91,3 +91,17 @@ if (hora < 12) {
 }
 
 document.getElementById("mensajeHora").innerText = mensaje;
+// 💎 CUMPLIDO DEL DÍA (GUARDADO)
+function cumplidoDelDia() {
+  const hoy = new Date().toDateString();
+  const guardado = localStorage.getItem("fechaCumplido");
+
+  if (guardado !== hoy) {
+    const i = Math.floor(Math.random() * cumplidos.length);
+    localStorage.setItem("cumplidoHoy", cumplidos[i]);
+    localStorage.setItem("fechaCumplido", hoy);
+  }
+
+  document.getElementById("cumplido").innerText =
+    localStorage.getItem("cumplidoHoy");
+}
