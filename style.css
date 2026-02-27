@@ -52,3 +52,16 @@ canvas {
   background: #fff;
   border-radius: 15px;
 }
+.corazon {
+  position: fixed;
+  bottom: -20px;
+  font-size: 20px;
+  animation: subir 6s linear infinite;
+}
+
+@keyframes subir {
+  to {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
