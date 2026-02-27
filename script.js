@@ -105,3 +105,14 @@ function cumplidoDelDia() {
   document.getElementById("cumplido").innerText =
     localStorage.getItem("cumplidoHoy");
 }
+// ❤️ CORAZONES FLOTANTES
+setInterval(() => {
+  const c = document.createElement("div");
+  c.className = "corazon";
+  c.innerText = "❤️";
+  c.style.left = Math.random() * 100 + "vw";
+  c.style.animationDuration = 4 + Math.random() * 4 + "s";
+  document.body.appendChild(c);
+
+  setTimeout(() => c.remove(), 7000);
+}, 500);
