@@ -78,3 +78,16 @@ function dibujarFamilia() {
   personaAnimada(150, 70, "#22c55e", 700); // Hijo
   personaAnimada(220, 60, "#3b82f6", 1200); // Papá
 }
+// 🕒 MENSAJE SEGÚN LA HORA
+const hora = new Date().getHours();
+let mensaje = "";
+
+if (hora < 12) {
+  mensaje = "Buenos días, amor. Pensé en ti desde que desperté ☀️";
+} else if (hora < 18) {
+  mensaje = "Espero que tu día esté siendo hermoso, como tú 💖";
+} else {
+  mensaje = "Esta noche también es nuestra… te amo 🌙❤️";
+}
+
+document.getElementById("mensajeHora").innerText = mensaje;
