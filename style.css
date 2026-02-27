@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  color: #4a044e;
+  text-align: center;
+}
+
+.hero {
+  padding: 60px 20px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+}
+
+.card {
+  background: rgba(255,255,255,0.9);
+  margin: 20px auto;
+  padding: 25px;
+  max-width: 340px;
+  border-radius: 25px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 20px;
+  background: #ec4899;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #db2777;
+}
+
+canvas {
+  border-radius: 15px;
+  background: #fff;
+}
+
+footer {
+  padding: 20px;
+  font-size: 0.9rem;
+}
