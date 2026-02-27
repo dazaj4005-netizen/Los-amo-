@@ -19,9 +19,6 @@ function iniciarAmor() {
   cumplidoDelDia();
   dibujarFamilia();
 }
-if (navigator.vibrate) {
-  navigator.vibrate([100, 50, 100]);
-}
 
 // 💌 CUMPLIDOS (NO REPETITIVOS)
 const cumplidos = [
