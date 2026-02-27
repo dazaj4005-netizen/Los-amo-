@@ -8,24 +8,29 @@
 <body>
 
 <section class="hero">
-  <h1>Nuestra Historia ❤️</h1>
+  <h1>❤️ Nuestra Historia ❤️</h1>
   <p id="dias"></p>
+  <button onclick="iniciarAmor()">💖 Iniciar</button>
 </section>
 
-<section class="card">
-  <h2>💌 Generador de cumplidos</h2>
-  <p id="cumplido">Presiona el botón 💕</p>
-  <button onclick="nuevoCumplido()">Generar cumplido</button>
+<section class="card oculto" id="cumplidosCard">
+  <h2>💌 Un cumplido para ti</h2>
+  <p id="cumplido"></p>
+  <button onclick="nuevoCumplido()">Otro cumplido ✨</button>
 </section>
 
-<section class="card">
+<section class="card oculto" id="familiaCard">
   <h2>🎨 Nuestra familia</h2>
   <canvas id="familia" width="300" height="220"></canvas>
 </section>
 
-<footer>
-  <p>Hecho con amor por Juan 💖</p>
+<footer class="oculto" id="footer">
+  <p>Hecho con todo mi amor, Juan 💕</p>
 </footer>
+
+<audio id="musica" loop>
+  <source src="https://cdn.pixabay.com/audio/2023/03/14/audio_8c8bfa.mp3" type="audio/mpeg">
+</audio>
 
 <script src="script.js"></script>
 </body>
